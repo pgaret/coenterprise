@@ -1,0 +1,55 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+  font-family: 'Roboto', sans-serif;
+}
+
+form{
+  background-color: white;
+}
+
+#login{
+  margin-left: 50vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 40vw;
+  display: inline-block;
+  background-color: white;
+}
+
+.title{
+  margin-top: 25vh;
+  font-size: 1.6em;
+  text-align: center;
+  padding-bottom: 5vh;
+  border-bottom: solid 1px black;
+}
+
+.form{
+  margin-left: 25%;
+  width: 40%;
+  margin-bottom: 45vh;
+  padding: 5%;
+}
+
+.label{
+  font-size: 1em;
+}
+
+.field{
+  font-size: 1em;
+}
+
+.check{
+  margin-top: 1vh;
+}
+
+.login-btn{
+  margin-top: 1vh;
+  font-size: 1em;
+}
+
+.error{
+  color: red;
+}

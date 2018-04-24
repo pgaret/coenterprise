@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"></link>
+    <title>CoE</title>
+  </head>
+  <body>
+    <section id="login">
+      <p class="title">Login to Syncrofy</p>
+      <form class="form" id="form" onsubmit="login()">
+        <div>
+          <div id="email-error" class="error"></div>
+          <div class="label">Email</div>
+          <input class="field" type="text" id="email" name="email" /><br />
+        </div>
+        <br />
+        <div>
+          <div id="password-error" class="error"></div>
+          <div class="label">Password</div>
+          <input class="field" type="password" id="password" name="password" />
+        </div>
+        <div class="check">
+          <input type="checkbox" id="remember" />
+          Remember me
+        </div>
+        <button class="login-btn" type="submit">Login</button>
+        <div id="submit-error" class="error"></div>
+      </form>
+    </section>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
