@@ -54,18 +54,16 @@ function buildTree(){
   for (let i = 0; i < input.length; i++){
     const pid = input[i].p_id
     const id = input[i].id
-    if (pid === null){
-    }
     if (!treeMap[id]){
-      treeMap[id] = {id: id, pid: pid, children: []}
+      treeMap[id] = {id: id, children: []}
     }
     if (!treeMap[pid]){
-      treeMap[pid] = {id: pid, pid: pid, children: [treeMap[id]]}
+      treeMap[pid] = {id: pid, children: [treeMap[id]]}
     } else {
       treeMap[pid].children.push(treeMap[id])
     }
   }
-  treeMap = treeMap.filter(tree=>{return tree.children.length > 0})
+  treeMap = treeMap.filter(tree=>{return tree.id === 1})[0]
   document.getElementById("input").innerHTML = JSON.stringify(input);
   document.getElementById("output").innerHTML = JSON.stringify(treeMap, null, 4);
   console.log(treeMap)
