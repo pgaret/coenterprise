@@ -49,8 +49,7 @@ let input = [
 ]
 
 function buildTree(){
-  let treeMap = []
-  let tree = {}
+  let treeMap = {}
   for (let i = 0; i < input.length; i++){
     const pid = input[i].p_id
     const id = input[i].id
@@ -63,10 +62,10 @@ function buildTree(){
       treeMap[pid].children.push(treeMap[id])
     }
   }
-  treeMap = treeMap.filter(tree=>{return tree.id === 1})[0]
-  document.getElementById("input").innerHTML = JSON.stringify(input);
-  document.getElementById("output").innerHTML = JSON.stringify(treeMap, null, 4);
-  console.log(treeMap)
+  document.getElementById("input").innerHTML = JSON.stringify(input, null, 4);
+  document.getElementById("output").innerHTML = JSON.stringify(treeMap[1], null, 4);
+  console.log(treeMap[1])
+  return treeMap[1]
 }
 
 buildTree()
