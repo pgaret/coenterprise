@@ -1,3 +1,5 @@
+document.getElementById("form").addEventListener("submit", login);
+
 function login(event){
   if (event){
     event.preventDefault();
@@ -36,45 +38,18 @@ function validate(email, password){
 }
 
 let input = [
+  {id: 1, p_id: null},
   {id: 7, p_id: 4},
   {id: 4, p_id: 2},
   {id: 6, p_id: 4},
   {id: 3, p_id: 1},
-  {id: 1, p_id: null},
   {id: 8, p_id: 3},
   {id: 2, p_id: 1},
   {id: 5, p_id: 2},
 ]
 
-let idealTree =
-{
-  id: 1,
-  children: [
-    {
-      id: 2,
-      children: [
-        {
-          id: 4,
-          children: [
-
-          ]
-        }
-      ]
-    },
-    {
-      id: 3,
-      children: [
-        {
-          id: 8,
-          children: []
-        }
-      ]
-    }
-  ]
-}
-
 function buildTree(){
-  let treeMap = {}
+  let treeMap = []
   let tree = {}
   for (let i = 0; i < input.length; i++){
     const pid = input[i].p_id
@@ -82,18 +57,17 @@ function buildTree(){
     if (pid === null){
     }
     if (!treeMap[id]){
-      treeMap[id] = {id: id, children: []}
+      treeMap[id] = {id: id, pid: pid, children: []}
     }
-    treeMap[id].parent = pid
     if (!treeMap[pid]){
-      treeMap[pid] = {id: pid, children: [treeMap[id]]}
+      treeMap[pid] = {id: pid, pid: pid, children: [treeMap[id]]}
     } else {
       treeMap[pid].children.push(treeMap[id])
     }
   }
-  for (let i = 0; i < treeMap.length; i++){
-
-  }
+  treeMap = treeMap.filter(tree=>{return tree.children.length > 0})
+  document.getElementById("input").innerHTML = JSON.stringify(input);
+  document.getElementById("output").innerHTML = JSON.stringify(treeMap, null, 4);
   console.log(treeMap)
 }
 
